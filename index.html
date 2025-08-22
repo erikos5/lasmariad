@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Lasmari Restaurant - Enjoy a Stress-Free Drive</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,12 +14,13 @@
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#000000">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Lasmari Restaurant">
     <link rel="apple-touch-icon" href="images/logo/website_logo_large.png">
     
     <!-- Offline/PWA capability indicators -->
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="orientation" content="any">
     <style>
         * {
             margin: 0;
@@ -33,6 +34,36 @@
             color: #333333;
             line-height: 1.6;
             overflow-x: hidden;
+            /* PWA Full Screen Support */
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        /* PWA Landscape Full Screen Fix */
+        @media screen and (orientation: landscape) {
+            body {
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
+            }
+            
+            .hero-section {
+                height: 100vh;
+                width: 100vw;
+            }
+        }
+
+        /* iOS PWA Safe Area Support */
+        @supports (padding: max(0px)) {
+            body {
+                padding-left: max(0px, env(safe-area-inset-left));
+                padding-right: max(0px, env(safe-area-inset-right));
+                padding-top: max(0px, env(safe-area-inset-top));
+                padding-bottom: max(0px, env(safe-area-inset-bottom));
+            }
         }
 
         /* Hero Section Split Layout */
