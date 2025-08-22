@@ -1,0 +1,35 @@
+{
+  "name": "Lasmari Restaurant - Reserve Your Experience",
+  "short_name": "Lasmari",
+  "description": "Fine dining at Lasmari Apraos with luxury chauffeur service. Make reservations even offline.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "images/logo/website_logo_large.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/logo/website_logo_large.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["food", "restaurant", "lifestyle"],
+  "screenshots": [
+    {
+      "src": "images/slideshow/DSC04796.JPEG",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "wide"
+    }
+  ],
+  "lang": "en",
+  "dir": "ltr"
+}

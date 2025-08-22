@@ -1,0 +1,25 @@
+{
+  "name": "lasmari-restaurant",
+  "version": "1.0.0",
+  "description": "Lasmari Restaurant - Fine dining with luxury chauffeur service. PWA with offline reservations.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 server.py",
+    "build": "echo 'Static site - no build needed'",
+    "start": "echo 'Deployed on Vercel - no local start needed'"
+  },
+  "keywords": [
+    "restaurant",
+    "reservations",
+    "pwa",
+    "offline",
+    "fine-dining"
+  ],
+  "author": "Lasmari Restaurant",
+  "license": "MIT",
+  "homepage": ".",
+  "repository": {
+    "type": "git",
+    "url": "."
+  }
+}
