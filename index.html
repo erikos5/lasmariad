@@ -52,6 +52,28 @@
             }
         }
 
+        /* Tablet Scrolling Fix */
+        @media screen and (max-width: 1024px) {
+            body {
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            html {
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        /* Force scrolling on mobile/tablet */
+        @media screen and (max-width: 768px) {
+            body {
+                overflow-y: scroll !important;
+                -webkit-overflow-scrolling: touch;
+                position: relative !important;
+            }
+        }
+
         /* iOS PWA Safe Area Support */
         @supports (padding: max(0px)) {
             body {
