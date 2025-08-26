@@ -109,7 +109,7 @@
             justify-content: center;
             background-color: #ffffff;
             padding: 4rem;
-            padding-top: 2rem;
+            padding-top: 1rem;
         }
 
         .slide {
@@ -149,7 +149,7 @@
         .logo {
             width: 500px;
             height: auto;
-            margin: 0 auto 2rem;
+            margin: 0 auto 1rem;
             background: url('images/logo/cc6f113f-ae99-491a-bb3a-de034c402e1e.JPG') center/contain no-repeat;
             background-size: contain;
             min-height: 350px;
@@ -672,6 +672,22 @@
             color: white;
         }
 
+        .email-button {
+            margin-left: 0.5rem;
+            text-decoration: none;
+            background: #007bff;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .email-button:hover {
+            background: #0056b3;
+            text-decoration: none;
+            color: white;
+        }
+
         .reservation-actions {
             display: flex;
             gap: 0.5rem;
@@ -962,6 +978,11 @@
                     <label for="phone" class="form-label">Phone Number</label>
                 </div>
 
+                <div class="form-group">
+                    <input type="email" id="email" class="form-input" placeholder=" " required>
+                    <label for="email" class="form-label">Email Address</label>
+                </div>
+
                 <div class="form-row">
                     <div class="form-group">
                         <input type="number" id="guests" class="form-input" placeholder=" " min="1" max="20" required>
@@ -1195,7 +1216,7 @@
                 const queue = this.getQueue();
                 if (queue.length === 0) return;
 
-                const headers = ['ID', 'Timestamp', 'Full Name', 'Phone', 'Guests', 'Date', 'Time', 'Notes'];
+                const headers = ['ID', 'Timestamp', 'Full Name', 'Phone', 'Email', 'Guests', 'Date', 'Time', 'Notes'];
                 const csvContent = [
                     headers.join(','),
                     ...queue.map(reservation => [
@@ -1203,6 +1224,7 @@
                         reservation.timestamp,
                         `"${reservation.fullName}"`,
                         `"${reservation.phone}"`,
+                        `"${reservation.email}"`,
                         reservation.guests,
                         reservation.date,
                         reservation.time,
@@ -1277,6 +1299,7 @@
                 const reservationData = {
                     fullName: formData.get('fullName') || document.getElementById('fullName').value,
                     phone: formData.get('phone') || document.getElementById('phone').value,
+                    email: formData.get('email') || document.getElementById('email').value,
                     guests: formData.get('guests') || document.getElementById('guests').value,
                     date: formData.get('date') || document.getElementById('date').value,
                     time: formData.get('time') || document.getElementById('time').value,
@@ -1284,7 +1307,7 @@
                 };
 
                 // Validate required fields
-                if (!reservationData.fullName || !reservationData.phone || 
+                if (!reservationData.fullName || !reservationData.phone || !reservationData.email ||
                     !reservationData.guests || !reservationData.date || !reservationData.time) {
                     this.showMessage('Please fill in all required fields.', 'error');
                     return;
@@ -1408,6 +1431,12 @@
                                     <strong>📞 Phone Number</strong>
                                     <span>${reservation.phone}</span>
                                     <a href="tel:${reservation.phone}" class="call-button" title="Call guest">📞</a>
+                                </div>
+                                
+                                <div class="reservation-field">
+                                    <strong>📧 Email Address</strong>
+                                    <span>${reservation.email}</span>
+                                    <a href="mailto:${reservation.email}" class="email-button" title="Email guest">📧</a>
                                 </div>
                                 
                                 <div class="reservation-field primary">
