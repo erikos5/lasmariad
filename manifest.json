@@ -9,15 +9,15 @@
   "orientation": "any",
   "icons": [
     {
-      "src": "images/logo/website_logo_large.png",
+      "src": "images/logo/cc6f113f-ae99-491a-bb3a-de034c402e1e.JPG",
       "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     },
     {
-      "src": "images/logo/website_logo_large.png",
+      "src": "images/logo/cc6f113f-ae99-491a-bb3a-de034c402e1e.JPG",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     }
   ],

@@ -1,15 +1,13 @@
-const CACHE_NAME = 'lasmari-restaurant-v1.2';
+const CACHE_NAME = 'lasmari-restaurant-v1.3';
 const urlsToCache = [
   './',
   './index.html',
   './manifest.json',
-  './images/logo/website_logo_large.png',
-  './images/slideshow/d1467d04-1ad0-4a2e-8839-2f0d91366755.JPG',
+  './images/logo/cc6f113f-ae99-491a-bb3a-de034c402e1e.JPG',
   './images/slideshow/DSC04796.JPEG',
   './images/slideshow/DSC04822%20(1).JPEG',
   './images/slideshow/IMG_8525.JPEG',
   './images/slideshow/IMG_8568.JPEG',
-  './images/background/d1467d04-1ad0-4a2e-8839-2f0d91366755.JPG',
   './images/background/DSC04796.JPEG',
   './images/background/DSC04822%20(1).JPEG',
   './images/background/IMG_8525.JPEG',
