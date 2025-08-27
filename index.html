@@ -67,18 +67,57 @@
 
         /* Tablet CTA Button Enhancement */
         @media screen and (min-width: 769px) and (max-width: 1024px) {
-            .cta-button {
-                padding: 1.2rem 3rem;
-                font-size: 1.3rem;
-                margin-top: 2rem;
-                background: #000000;
-                box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
-                position: relative;
-                z-index: 10;
+            .hero-section {
+                height: auto;
+                min-height: 100vh;
             }
             
             .hero-content-wrapper {
-                padding: 3rem 2rem 4rem 2rem;
+                padding: 2rem 1.5rem;
+                align-items: flex-start;
+                overflow-y: auto;
+            }
+            
+            .hero-content {
+                padding-bottom: 3rem;
+            }
+            
+            .logo {
+                min-height: 250px;
+                width: 400px;
+                margin: 0 auto 0;
+            }
+            
+            .hero-title {
+                margin-top: -2rem;
+                margin-bottom: 1rem;
+                font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            }
+            
+            .hero-subtitle {
+                margin-bottom: 1.5rem;
+                font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+            }
+            
+            .hero-description {
+                margin-bottom: 2rem;
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+            
+            .cta-button {
+                padding: 1rem 2.5rem;
+                font-size: 1.1rem;
+                margin-top: 1rem;
+                margin-bottom: 2rem;
+                background: #000000;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+                position: relative;
+                z-index: 10;
+                display: block;
+                width: fit-content;
+                margin-left: auto;
+                margin-right: auto;
             }
         }
 
