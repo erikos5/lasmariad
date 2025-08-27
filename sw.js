@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lasmari-restaurant-v1.3';
+const CACHE_NAME = 'lasmari-restaurant-v1.4';
 const urlsToCache = [
   './',
   './index.html',
