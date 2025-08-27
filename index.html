@@ -65,6 +65,23 @@
             }
         }
 
+        /* Tablet CTA Button Enhancement */
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            .cta-button {
+                padding: 1.2rem 3rem;
+                font-size: 1.3rem;
+                margin-top: 2rem;
+                background: #000000;
+                box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+                position: relative;
+                z-index: 10;
+            }
+            
+            .hero-content-wrapper {
+                padding: 3rem 2rem 4rem 2rem;
+            }
+        }
+
         /* Force scrolling on mobile/tablet */
         @media screen and (max-width: 768px) {
             body {
@@ -159,7 +176,7 @@
         .hero-title {
             font-size: clamp(2rem, 4vw, 3.5rem);
             font-weight: 700;
-            margin-top: -0.5rem;
+            margin-top: -1.5rem;
             margin-bottom: 1.5rem;
             color: #000000;
             line-height: 1.2;
