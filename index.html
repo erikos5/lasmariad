@@ -91,7 +91,7 @@
         }
 
         .hero-slideshow {
-            flex: 1;
+            width: 50%;
             position: relative;
             overflow: hidden;
         }
@@ -103,7 +103,7 @@
         }
 
         .hero-content-wrapper {
-            flex: 1;
+            width: 50%;
             display: flex;
             align-items: flex-start;
             justify-content: center;
@@ -402,23 +402,7 @@
             color: #f44336;
         }
 
-        /* Export Button */
-        .export-button {
-            background: rgba(0, 0, 0, 0.05);
-            color: #000000;
-            border: 2px solid #000000;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
 
-        .export-button:hover {
-            background: rgba(0, 0, 0, 0.1);
-        }
 
         /* Admin Dashboard */
         .admin-section {
@@ -989,9 +973,7 @@
                 <button type="submit" class="submit-button">Reserve My Visit</button>
             </form>
 
-            <button id="export-button" class="export-button" style="display: none;">
-                Export Offline Reservations to CSV
-            </button>
+
         </div>
     </section>
 
@@ -1144,7 +1126,7 @@
             constructor() {
                 this.storageKey = 'lasmari_reservations';
                 this.updateQueueIndicator();
-                this.toggleExportButton();
+
             }
 
             saveReservation(reservationData) {
@@ -1159,7 +1141,7 @@
                 localStorage.setItem(this.storageKey, JSON.stringify(queue));
                 
                 this.updateQueueIndicator();
-                this.toggleExportButton();
+
                 
                 return reservation;
             }
@@ -1175,11 +1157,7 @@
                 queueCount.textContent = queue.length;
             }
 
-            toggleExportButton() {
-                const queue = this.getQueue();
-                const exportButton = document.getElementById('export-button');
-                exportButton.style.display = queue.length > 0 ? 'block' : 'none';
-            }
+
 
             exportToCSV() {
                 const queue = this.getQueue();
@@ -1237,7 +1215,7 @@
             clearQueue() {
                 localStorage.removeItem(this.storageKey);
                 this.updateQueueIndicator();
-                this.toggleExportButton();
+
             }
         }
 
@@ -1466,7 +1444,7 @@
                     
                     localStorage.setItem(this.offlineManager.storageKey, JSON.stringify(updatedReservations));
                     this.offlineManager.updateQueueIndicator();
-                    this.offlineManager.toggleExportButton();
+
                     this.refreshReservations();
                 }
             }
@@ -1575,9 +1553,7 @@
             const reservationForm = new ReservationForm(offlineManager);
             
             // Export button functionality
-            document.getElementById('export-button').addEventListener('click', function() {
-                offlineManager.exportToCSV();
-            });
+
             
             // Smooth scroll for CTA button
             document.querySelector('.cta-button').addEventListener('click', function(e) {
