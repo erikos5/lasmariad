@@ -70,46 +70,56 @@
             .hero-section {
                 height: auto;
                 min-height: 100vh;
+                flex-direction: column;
+            }
+            
+            .hero-slideshow {
+                width: 100%;
+                height: 45vh;
             }
             
             .hero-content-wrapper {
-                padding: 2rem 1.5rem;
-                align-items: flex-start;
+                width: 100%;
+                height: 55vh;
+                padding: 1.5rem 2rem;
+                align-items: center;
+                justify-content: center;
                 overflow-y: auto;
             }
             
             .hero-content {
-                padding-bottom: 3rem;
+                padding-bottom: 2rem;
+                max-width: 600px;
             }
             
             .logo {
-                min-height: 250px;
-                width: 400px;
+                min-height: 180px;
+                width: 300px;
                 margin: 0 auto 0;
             }
             
             .hero-title {
-                margin-top: -2rem;
+                margin-top: -1rem;
                 margin-bottom: 1rem;
-                font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+                font-size: clamp(1.6rem, 3vw, 2.2rem);
             }
             
             .hero-subtitle {
-                margin-bottom: 1.5rem;
-                font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+                margin-bottom: 1rem;
+                font-size: clamp(0.9rem, 1.6vw, 1.1rem);
             }
             
             .hero-description {
-                margin-bottom: 2rem;
-                font-size: 1rem;
-                line-height: 1.5;
+                margin-bottom: 1.5rem;
+                font-size: 0.95rem;
+                line-height: 1.4;
             }
             
             .cta-button {
                 padding: 1rem 2.5rem;
                 font-size: 1.1rem;
                 margin-top: 1rem;
-                margin-bottom: 2rem;
+                margin-bottom: 1rem;
                 background: #000000;
                 box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
                 position: relative;
@@ -215,7 +225,7 @@
         .hero-title {
             font-size: clamp(2rem, 4vw, 3.5rem);
             font-weight: 700;
-            margin-top: -1.5rem;
+            margin-top: -3rem;
             margin-bottom: 1.5rem;
             color: #000000;
             line-height: 1.2;
@@ -1107,31 +1117,47 @@
             }
 
             init() {
-                this.startSlideshow();
+                console.log('Initializing hero slideshow with', this.slides.length, 'slides');
+                if (this.slides.length > 1) {
+                    // Start with first slide active
+                    this.showSlide(0);
+                    // Wait a bit then start the slideshow
+                    setTimeout(() => {
+                        this.startSlideshow();
+                    }, 2000);
+                }
             }
 
             showSlide(index) {
+                console.log('Showing slide', index);
                 // Remove active class from all slides
-                this.slides.forEach(slide => slide.classList.remove('active'));
+                this.slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                    console.log('Removed active from slide', i);
+                });
                 
                 // Add active class to current slide
                 this.slides[index].classList.add('active');
+                console.log('Added active to slide', index);
             }
 
             nextSlide() {
                 this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+                console.log('Moving to slide', this.currentSlide);
                 this.showSlide(this.currentSlide);
             }
 
             startSlideshow() {
+                console.log('Starting hero slideshow with 5-second intervals');
                 this.slideInterval = setInterval(() => {
                     this.nextSlide();
-                }, 8000); // Change slide every 8 seconds (slower)
+                }, 5000); // Faster for testing - 5 seconds
             }
 
             stopSlideshow() {
                 if (this.slideInterval) {
                     clearInterval(this.slideInterval);
+                    this.slideInterval = null;
                 }
             }
         }
@@ -1593,11 +1619,15 @@
 
         // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing slideshows...');
+            
             // Initialize hero slideshow
             const slideshow = new Slideshow();
+            console.log('Hero slideshow initialized');
             
             // Initialize background slideshow
             const backgroundSlideshow = new BackgroundSlideshow();
+            console.log('Background slideshow initialized');
             
             // Initialize offline reservation manager
             const offlineManager = new OfflineReservationManager();
