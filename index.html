@@ -216,30 +216,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* About Section */
-        .about-section {
-            padding: 5rem 2rem;
-            background: #f8f8f8;
-            text-align: center;
-        }
 
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #000000;
-            font-weight: 300;
-        }
-
-        .about-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #555555;
-        }
 
         /* Reservation Section */
         .reservation-section {
@@ -939,16 +916,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about-section">
-        <div class="about-content">
-            <h2 class="section-title">About Lasmari</h2>
-            <p class="about-text">
-                At Lasmari Restaurant, we believe exceptional dining should be accessible to everyone. 
-                Our premium cuisine and stress-free experience make every visit a celebration of great food and hospitality.
-            </p>
-        </div>
-    </section>
+
 
     <!-- Reservation Section -->
     <section class="reservation-section" id="reservation">
@@ -1357,7 +1325,7 @@
             toggleAdminView() {
                 const adminSection = document.getElementById('admin-section');
                 const heroSection = document.querySelector('.hero-section');
-                const aboutSection = document.querySelector('.about-section');
+
                 const reservationSection = document.querySelector('.reservation-section');
                 
                 this.isAdminView = !this.isAdminView;
@@ -1366,14 +1334,14 @@
                     // Show admin, hide main content
                     adminSection.classList.add('show');
                     heroSection.style.display = 'none';
-                    aboutSection.style.display = 'none';
+
                     reservationSection.style.display = 'none';
                     this.refreshReservations();
                 } else {
                     // Show main content, hide admin
                     adminSection.classList.remove('show');
                     heroSection.style.display = 'flex';
-                    aboutSection.style.display = 'block';
+
                     reservationSection.style.display = 'flex';
                 }
             }
