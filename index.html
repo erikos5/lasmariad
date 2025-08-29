@@ -1659,18 +1659,7 @@
                 });
             });
 
-            // Pause slideshow when user is filling form (performance optimization)
-            const reservationSection = document.getElementById('reservation');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        slideshow.stopSlideshow();
-                    } else {
-                        slideshow.startSlideshow();
-                    }
-                });
-            });
-            observer.observe(reservationSection);
+            // Slideshow now runs continuously forever - no performance optimization pause
         });
 
         // Make sync function globally available for future implementation
